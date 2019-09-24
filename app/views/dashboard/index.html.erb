@@ -1,2 +1,12 @@
 <h1>Dashboard#index</h1>
 <p>Find me in app/views/dashboard/index.html.erb</p>
+<% if user_signed_in? %>
+  Already logged
+  <br>
+  Your role: <%= current_user.role %>
+  <br>
+  <%= link_to "Sign out", destroy_user_session_path, method: :delete %>
+<% else %>
+  Please login
+  <%= link_to "Sign in", new_user_session_path %>
+<% end %>
