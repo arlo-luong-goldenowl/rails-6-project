@@ -1,0 +1,42 @@
+- content_for :head do
+  | authentication-bg
+
+.account-pages.mt-5.mb-5
+  .container
+    .row.justify-content-center
+      .col-lg-5
+        .card
+          /! Logo
+          .card-header.pt-4.pb-4.text-center.bg-primary
+            a href="index.html"
+              span
+                = image_tag "logo.png", height: 18
+          .card-body.p-4
+            .text-center.w-75.m-auto
+              h4.text-dark-50.text-center.mt-0.font-weight-bold Sign In
+              p.text-muted.mb-4 Enter your email address and password to access admin panel.
+            = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+              .form-group
+                = f.label :email_address, for: "emailaddress"
+                = f.text_field :email, id: "emailaddress", class: "form-control", placeholder: "Enter your email", requird: "", type: "email"
+              .form-group
+                a.text-muted.float-right href="pages-recoverpw.html"
+                  small Forgot your password?
+                = f.label :password, for: "password"
+                = f.text_field :password, id: "password", class: "form-control", placeholder: "Enter your password", requird: "", type: "password"
+              .form-group.mb-3
+                .custom-control.custom-checkbox
+                  = f.check_box :remember_me, id: "checkbox-signin", class: "custom-control-input", type: "checkbox"
+                  = f.label :remember_me, for: "checkbox-signin", class: "custom-control-label"
+              .form-group.mb-0.text-center
+                = f.submit "Log in", class:"btn btn-primary"
+          /! end card-body
+        /! end card
+        .row.mt-3
+          .col-12.text-center
+            p.text-muted
+              | Don't have an account?
+              a.text-dark.ml-1 href="pages-register.html"
+                b Sign Up
+footer.footer.footer-alt
+  | 2018 © Hyper - Coderthemes.com

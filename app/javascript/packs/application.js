@@ -2,11 +2,27 @@
 // present in this directory. You're encouraged to place your actual application logic in
 // a relevant structure within app/javascript and only use these pack files to reference
 // that code so it'll be compiled.
+import "assets/css/vendor/jquery-jvectormap-1.2.2.css"
+import "assets/css/icons.css"
+import "assets/css/app.css"
 
 require("@rails/ujs").start()
 require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
+
+require("daterangepicker")
+require("metismenu")
+require("select2")
+require("jquery-slimscroll")
+
+$(document).on('ready turbolinks:load', function() {
+  require("assets/js/app.min")
+  require("assets/js/vendor/Chart.bundle.min")
+  require("assets/js/vendor/jquery-jvectormap-1.2.2.min")
+  require("assets/js/vendor/jquery-jvectormap-world-mill-en")
+  require("assets/js/pages/demo.dashboard")
+})
 
 
 // Uncomment to copy all static images under ../images to the output folder and reference
